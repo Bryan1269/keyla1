@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Profesional - Alzheimer</title>
+    <style>
+        :root {
+            --azul-enfermeria: #005b96;
+            --celeste-claro: #b3cde0;
+            --blanco: #ffffff;
+            --texto: #2c3e50;
+            --portada-bg: #9e583c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--celeste-claro) 0%, var(--azul-enfermeria) 100%);
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            position: relative;
+            width: 90vw;
+            max-width: 1300px;
+            height: 85vh;
+            perspective: 1000px;
+        }
+
+        .card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--blanco);
+            border-radius: 25px;
+            padding: 50px 70px;
+            box-sizing: border-box;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+            display: none;
+            flex-direction: column;
+            overflow-y: auto;
+            border-left: 20px solid var(--azul-enfermeria);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .card.active { display: flex; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h2 { color: var(--azul-enfermeria); font-size: 2.5rem; border-bottom: 4px solid var(--celeste-claro); padding-bottom: 10px; margin-top: 0; margin-bottom: 20px;}
+        h1 { font-size: 4rem; margin: 15px 0; text-transform: uppercase;}
+        p, li { font-size: 1.4rem; line-height: 1.5; color: var(--texto); margin-bottom: 10px;}
+        strong { color: var(--azul-enfermeria); }
+
+        .cover-card { background-color: var(--portada-bg); border-left: none; color: white; text-align: center; justify-content: center; align-items: center;}
+        .cover-card strong { color: #ffd1a4; }
+        .school-logo { width: 120px; margin-bottom: 10px; }
+
+        .image-footer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: auto; 
+            padding-top: 20px;
+        }
+
+        .image-footer img {
+            max-width: 40%;
+            max-height: 220px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 3px solid var(--celeste-claro);
+            object-fit: cover;
+        }
+
+        .nav-btns {
+            position: absolute;
+            top: 50%;
+            width: 106%;
+            left: -3%;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+
+        .btn {
+            background: var(--azul-enfermeria);
+            color: white;
+            border: none;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: auto;
+            font-size: 35px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+
+        .btn:hover { background: #003b63; transform: scale(1.1); }
+        .btn:disabled { background: #ccc; cursor: not-allowed; opacity: 0.5; }
+
+        .counter { position: absolute; bottom: -45px; width: 100%; text-align: center; color: white; font-size: 1.5rem; font-weight: bold;}
+    </style>
+</head>
+<body>
+
+<div class="presentation-container">
+    
+    <div class="card active cover-card">
+        <img src="escudo.jpeg" alt="Escudo" class="school-logo" onerror="this.src='https://via.placeholder.com/130x160?text=ESCUDO';">
+        <div style="font-size: 1.5rem; font-weight: bold;">Esc.Prep.Est. por Coop. “Fernando E. Angli Lara”</div>
+        <p><strong>Asignatura:</strong> Módulo V Submódulo II<br>Cuidados de enfermería en la persona con alteraciones mentales</p>
+        <h1>ALZHEIMER</h1>
+        <div style="font-size: 1.2rem;">
+            <strong>Equipo 2:</strong> Caroline del Ángel, Carlos Hernández, Joselyn Rodriguez, Jadiel Garcia, Keyla Us<br><br>
+            <strong>Docente:</strong> E.E Sergio Raúl May León | <strong>6to D</strong>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>¿Qué es el Alzheimer?</h2>
+        <p>Es una enfermedad <strong>neurodegenerativa progresiva e irreversible</strong>. Se caracteriza por la pérdida de neuronas y sinapsis en la corteza cerebral, lo que lleva a una atrofia de los lóbulos temporal y parietal.</p>
+        
+        <p>Afecta funciones cognitivas superiores como la memoria, el juicio, el lenguaje y la orientación, siendo la causa más común de demencia en el adulto mayor.</p>
+        <div class="image-footer">
+            <img src="imagen2.jpeg" alt="Cerebro">
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Causas y Etiología</h2>
+        <p><strong>Causas:</strong> No existe una causa única, sino una combinación de factores de riesgo ambientales, estilo de vida y genética.</p>
+        <p><strong>Etiología:</strong></p>
+        <ul>
+            <li><strong>Genética:</strong> Presencia del alelo <strong>APOE-ε4</strong> y mutaciones en los genes de la proteína precursora amiloide (APP).</li>
+            <li><strong>Edad:</strong> Es el factor de riesgo más importante (incidencia duplica cada 5 años después de los 65).</li>
+            <li><strong>Factores de Riesgo:</strong> Hipertensión, obesidad, diabetes y bajo nivel de estimulación cognitiva.</li>
+        </ul>
+        <div class="image-footer">
+            <img src="imagen3.jpeg" alt="Causas">
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Fisiopatología</h2>
+        <p>El daño cerebral se basa en dos procesos bioquímicos principales:</p>
+        
+        <ul>
+            <li><strong>Placas de Beta-Amiloide:</strong> Proteínas que se agrupan fuera de las neuronas, interrumpiendo la señalización sináptica y activando una respuesta inflamatoria dañina.</li>
+            <li><strong>Ovillos Neurofibrilares:</strong> La proteína <strong>Tau</strong> se hiperfosforila y se retuerce dentro de la neurona, destruyendo los microtúbulos encargados del transporte de nutrientes.</li>
+            <li><strong>Déficit de Acetilcolina:</strong> Reducción drástica del neurotransmisor esencial para el aprendizaje y la memoria.</li>
+        </ul>
+        <div class="image-footer">
+            <img src="imagen4.jpeg" alt="Fisiopatología">
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Diagnósticos</h2>
+        <p><strong>Diagnóstico Médico:</strong> Basado en criterios del DSM-V, exclusión de otras demencias, Resonancia Magnética (atrofia hipocampal) y pruebas neuropsicológicas (Test de Folstein).</p>
+        <p><strong>Diagnóstico de Enfermería (NANDA):</strong></p>
+        <ul>
+            <li>Confusión crónica r/c cambios cognitivos.</li>
+            <li>Deterioro de la memoria r/c cambios neurológicos.</li>
+            <li>Riesgo de caídas r/c desorientación.</li>
+        </ul>
+        <p><strong>Diagnóstico Farmacológico:</strong> Evaluación de la respuesta a los inhibidores de acetilcolinesterasa y ajuste según tolerancia gástrica y efectos secundarios.</p>
+        <div class="image-footer">
+            <img src="imagen5.jpg" alt="Diagnóstico">
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Cuidados de Enfermería</h2>
+        <ul>
+            <li><strong>Seguridad y ambiente:</strong> Mantener un entorno seguro, iluminado y sin obstáculos, con rutinas para evitar confusión y caídas.</li>
+            <li><strong>Higiene y aseo:</strong> Cuidar baño, piel y boca; prevenir infecciones y úlceras, respetando el ritmo del paciente.</li>
+            <li><strong>Comunicación y estimulación:</strong> Hablar claro, con frases cortas; estimular la memoria y mantener un ambiente tranquilo.</li>
+            <li><strong>Alimentación y nutrición:</strong> Fomentar la autonomía al comer y vigilar la deglución, especialmente en etapas avanzadas.</li>
+            <li><strong>Movilidad y sueño:</strong> Realizar ejercicios para evitar rigidez y mantener horarios de descanso estables.</li>
+            <li><strong>Gestión de comportamientos:</strong> Usar actividades, objetos familiares y apoyo emocional, respetando su historia y preferencias.</li>
+        </ul>
+        <div class="image-footer">
+            <img src="imagen_cuidados.jpg" alt="Cuidados de Enfermería" onerror="this.src='https://via.placeholder.com/300x200?text=IMAGEN+CUIDADOS';">
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Etapas del Alzheimer</h2>
+        <p>Se utiliza habitualmente la Escala de Deterioro Global (GDS):</p>
+        
+        <ol>
+            <li><strong>Etapa Leve:</strong> Olvidos mínimos, dificultad para encontrar palabras, pérdida de objetos. El paciente aún es independiente.</li>
+            <li><strong>Etapa Moderada:</strong> Desorientación espacial, cambios de personalidad, necesita ayuda para elegir ropa o bañarse. Es la etapa más larga.</li>
+            <li><strong>Etapa Grave:</strong> Pérdida del habla, incapacidad para caminar, incontinencia y dependencia total del cuidador.</li>
+        </ol>
+        <div class="image-footer">
+            <img src="imagen6.avif" alt="Etapas">
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Signos, Síntomas y Cuadro Clínico</h2>
+        <p>El paciente presenta las <strong>4 "A"</strong> del cuadro clínico clásico:</p>
+        <ul>
+            <li><strong>Amnesia:</strong> Pérdida de memoria (primero la reciente).</li>
+            <li><strong>Afasia:</strong> Alteración del lenguaje.</li>
+            <li><strong>Apraxia:</strong> Deterioro de la capacidad para realizar actividades motoras (vestirse, comer).</li>
+            <li><strong>Agnosia:</strong> Falla en el reconocimiento de objetos o rostros conocidos.</li>
+            <li><strong>Sintomatología conductual:</strong> Agitación, vagabundeo e irritabilidad nocturna.</li>
+        </ul>
+        <div class="image-footer">
+            <img src="imagen7.jpg" alt="Sintomas">
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Estadística en México</h2>
+        <p>El panorama epidemiológico nacional muestra:</p>
+        <ul>
+            <li><strong>Cifra Actual:</strong> Aproximadamente <strong>1.3 a 1.5 millones</strong> de personas afectadas.</li>
+            <li><strong>Género:</strong> Prevalencia ligeramente mayor en mujeres mexicanas.</li>
+            <li><strong>Proyección 2050:</strong> Se estima que el número de casos aumentará a 3.5 millones debido al envejecimiento de la población.</li>
+            <li><strong>Impacto:</strong> Es la demencia más frecuente en México (70% de los casos totales).</li>
+        </ul>
+        <div class="image-footer">
+            <img src="imagen8.jpg" alt="México">
+            <img src="imagen9.jpg" alt="Estadística">
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Tratamiento</h2>
+        <p><strong>Farmacológico:</strong></p>
+        <ul>
+            <li><strong>Inhibidores de la Acetilcolinesterasa:</strong> Donepezilo, Rivastigmina y Galantamina (etapa leve/moderada).</li>
+            <li><strong>Antagonistas NMDA:</strong> Memantina (etapa moderada/grave).</li>
+        </ul>
+        <p><strong>No Farmacológico:</strong></p>
+        <ul>
+            <li><strong>Estimulación Cognitiva:</strong> Talleres de memoria y lectura.</li>
+            <li><strong>Musicoterapia y Reminiscencia:</strong> Trabajar con recuerdos antiguos.</li>
+            <li><strong>Terapia Ocupacional:</strong> Adaptar actividades para mantener la funcionalidad.</li>
+        </ul>
+        <div class="image-footer">
+            <img src="imagen10.webp" alt="Farmacos">
+            <img src="imagen11.jpg" alt="Terapias">
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Prevención</h2>
+        <p>Se basa en fortalecer la <strong>Reserva Cognitiva</strong> y la salud vascular:</p>
+        <ul>
+            <li><strong>Dieta:</strong> Estilo mediterráneo (aceite de oliva, verduras, omega 3).</li>
+            <li><strong>Ejercicio:</strong> Actividad aeróbica regular para oxigenación cerebral.</li>
+            <li><strong>Socialización:</strong> Mantener redes sociales y vínculos afectivos activos.</li>
+            <li><strong>Control Médico:</strong> Vigilancia de la tensión arterial, glucosa y colesterol.</li>
+            <li><strong>Higiene del sueño:</strong> El sueño ayuda a "limpiar" las proteínas tóxicas del cerebro.</li>
+        </ul>
+        <div class="image-footer">
+            <img src="imagen12.jpg" alt="Prevencion">
+            <img src="imagen13.jpg" alt="Hábitos">
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Bibliografía</h2>
+        <p>Fuentes académicas utilizadas:</p>
+        <ul>
+            <li>Secretaría de Salud (2024). Guía de Práctica Clínica: Diagnóstico y Tratamiento del Alzheimer. México.</li>
+            <li>Instituto Nacional de Geriatría (INGER). Informe sobre Demencias en México.</li>
+            <li>Organización Mundial de la Salud (OMS). Informe Mundial sobre la Demencia.</li>
+            <li>NANDA International. Diagnósticos Enfermeros 2021-2023.</li>
+        </ul>
+    </div>
+
+    <div class="nav-btns">
+        <button class="btn" id="prevBtn" onclick="changeCard(-1)" disabled>&#10094;</button>
+        <button class="btn" id="nextBtn" onclick="changeCard(1)">&#10095;</button>
+    </div>
+
+    <div class="counter" id="counter">1 / 12</div>
+</div>
+
+<script>
+    let currentCardIndex = 0;
+    const cards = document.querySelectorAll('.card');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const counterText = document.getElementById('counter');
+
+    function changeCard(step) {
+        cards[currentCardIndex].classList.remove('active');
+        currentCardIndex += step;
+        cards[currentCardIndex].classList.add('active');
+        cards[currentCardIndex].scrollTop = 0; 
+        
+        prevBtn.disabled = (currentCardIndex === 0);
+        nextBtn.disabled = (currentCardIndex === cards.length - 1);
+        counterText.innerText = `${currentCardIndex + 1} / ${cards.length}`;
+    }
+</script>
+
+</body>
+</html>
